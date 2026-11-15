@@ -1,5 +1,7 @@
 package model;
 
+import util.Validator;
+
 /**
  * Lớp EBook đại diện cho Sách điện tử, kế thừa từ Document (SRS Mục 5.2).
  * Quy tắc nghiệp vụ: Không giới hạn bản sao (canBorrow() luôn trả về true) và không tính phí phạt trễ hạn (0 VNĐ).
@@ -25,10 +27,7 @@ public class EBook extends Document {
     }
 
     public void setDownloadUrl(String downloadUrl) {
-        if (downloadUrl == null || downloadUrl.trim().isEmpty()) {
-            throw new IllegalArgumentException("Đường dẫn tải (URL) không được để trống!");
-        }
-        this.downloadUrl = downloadUrl.trim();
+        this.downloadUrl = Validator.requireUrl(downloadUrl, "Đường dẫn tải (URL)");
     }
 
     public double getFileSizeMb() {
@@ -36,10 +35,7 @@ public class EBook extends Document {
     }
 
     public void setFileSizeMb(double fileSizeMb) {
-        if (fileSizeMb <= 0) {
-            throw new IllegalArgumentException("Dung lượng file phải lớn hơn 0 MB!");
-        }
-        this.fileSizeMb = fileSizeMb;
+        this.fileSizeMb = Validator.requirePositive(fileSizeMb, "Dung lượng file (MB)");
     }
 
     public String getFormat() {
@@ -47,10 +43,7 @@ public class EBook extends Document {
     }
 
     public void setFormat(String format) {
-        if (format == null || format.trim().isEmpty()) {
-            throw new IllegalArgumentException("Định dạng file (format) không được để trống!");
-        }
-        this.format = format.trim().toUpperCase();
+        this.format = Validator.requireText(format, "Định dạng file (format)").toUpperCase();
     }
 
     @Override

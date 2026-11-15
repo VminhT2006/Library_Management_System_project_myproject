@@ -1,5 +1,7 @@
 package model;
 
+import util.Validator;
+
 /**
  * Lớp Magazine đại diện cho Tạp chí định kỳ, kế thừa từ Document (SRS Mục 5.2).
  */
@@ -26,10 +28,7 @@ public class Magazine extends Document {
     }
 
     public void setIssueNumber(int issueNumber) {
-        if (issueNumber <= 0) {
-            throw new IllegalArgumentException("Số phát hành tạp chí phải lớn hơn 0!");
-        }
-        this.issueNumber = issueNumber;
+        this.issueNumber = Validator.requirePositive(issueNumber, "Số phát hành tạp chí");
     }
 
     public int getPublishMonth() {
@@ -37,10 +36,7 @@ public class Magazine extends Document {
     }
 
     public void setPublishMonth(int publishMonth) {
-        if (publishMonth < 1 || publishMonth > 12) {
-            throw new IllegalArgumentException("Tháng xuất bản phải nằm trong khoảng từ 1 đến 12!");
-        }
-        this.publishMonth = publishMonth;
+        this.publishMonth = Validator.requireRange(publishMonth, 1, 12, "Tháng xuất bản");
     }
 
     public int getQuantity() {
@@ -48,10 +44,7 @@ public class Magazine extends Document {
     }
 
     public void setQuantity(int quantity) {
-        if (quantity < 0) {
-            throw new IllegalArgumentException("Số lượng tạp chí không được âm!");
-        }
-        this.quantity = quantity;
+        this.quantity = Validator.requireNonNegative(quantity, "Số lượng tạp chí");
     }
 
     @Override

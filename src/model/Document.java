@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import util.Validator;
 
 /**
  * Lớp trừu tượng Document làm gốc cho mọi loại ấn phẩm trong thư viện (SRS Mục 5.2).
@@ -25,10 +26,7 @@ public abstract class Document {
     }
 
     public void setId(String id) {
-        if (id == null || id.trim().isEmpty()) {
-            throw new IllegalArgumentException("Mã tài liệu (ID) không được để trống!");
-        }
-        this.id = id.trim().toUpperCase();
+        this.id = Validator.requireText(id, "Mã tài liệu (ID)").toUpperCase();
     }
 
     public String getTitle() {
@@ -36,10 +34,7 @@ public abstract class Document {
     }
 
     public void setTitle(String title) {
-        if (title == null || title.trim().isEmpty()) {
-            throw new IllegalArgumentException("Tiêu đề tài liệu không được để trống!");
-        }
-        this.title = title.trim();
+        this.title = Validator.requireText(title, "Tiêu đề tài liệu");
     }
 
     public int getPublicationYear() {
@@ -48,10 +43,7 @@ public abstract class Document {
 
     public void setPublicationYear(int publicationYear) {
         int currentYear = LocalDate.now().getYear();
-        if (publicationYear <= 0 || publicationYear > currentYear) {
-            throw new IllegalArgumentException("Năm xuất bản không hợp lệ (phải từ 1 đến " + currentYear + ")!");
-        }
-        this.publicationYear = publicationYear;
+        this.publicationYear = Validator.requireRange(publicationYear, 1, currentYear, "Năm xuất bản");
     }
 
     /**

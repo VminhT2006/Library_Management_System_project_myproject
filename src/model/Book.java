@@ -2,6 +2,7 @@ package model;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import util.Validator;
 
 /**
  * Lớp Book đại diện cho Sách truyền thống, kế thừa từ Document (SRS Mục 5.2).
@@ -33,10 +34,7 @@ public class Book extends Document {
     }
 
     public void setAuthor(String author) {
-        if (author == null || author.trim().isEmpty()) {
-            throw new IllegalArgumentException("Tên tác giả không được để trống!");
-        }
-        this.author = author.trim();
+        this.author = Validator.requireText(author, "Tên tác giả");
     }
 
     public String getPublisher() {
@@ -44,10 +42,7 @@ public class Book extends Document {
     }
 
     public void setPublisher(String publisher) {
-        if (publisher == null || publisher.trim().isEmpty()) {
-            throw new IllegalArgumentException("Nhà xuất bản không được để trống!");
-        }
-        this.publisher = publisher.trim();
+        this.publisher = Validator.requireText(publisher, "Nhà xuất bản");
     }
 
     public int getQuantity() {
@@ -55,10 +50,7 @@ public class Book extends Document {
     }
 
     public void setQuantity(int quantity) {
-        if (quantity < 0) {
-            throw new IllegalArgumentException("Số lượng sách không được âm!");
-        }
-        this.quantity = quantity;
+        this.quantity = Validator.requireNonNegative(quantity, "Số lượng sách");
     }
 
     public Queue<String> getWaitingList() {
@@ -66,10 +58,7 @@ public class Book extends Document {
     }
 
     public void setWaitingList(Queue<String> waitingList) {
-        if (waitingList == null) {
-            throw new IllegalArgumentException("Hàng đợi đặt trước không được để rỗng (null)!");
-        }
-        this.waitingList = waitingList;
+        this.waitingList = Validator.requireNonNull(waitingList, "Hàng đợi đặt trước");
     }
 
     @Override

@@ -1,5 +1,7 @@
 package model;
 
+import util.Validator;
+
 /**
  * Lớp Thesis đại diện cho Luận văn tốt nghiệp, kế thừa từ Document (SRS Mục 5.2).
  * Quy tắc nghiệp vụ: Luận văn chỉ được đọc tại chỗ trong thư viện (canBorrow() luôn trả về false).
@@ -25,10 +27,7 @@ public class Thesis extends Document {
     }
 
     public void setUniversity(String university) {
-        if (university == null || university.trim().isEmpty()) {
-            throw new IllegalArgumentException("Tên trường đại học không được để trống!");
-        }
-        this.university = university.trim();
+        this.university = Validator.requireText(university, "Tên trường đại học");
     }
 
     public String getAdvisor() {
@@ -36,10 +35,7 @@ public class Thesis extends Document {
     }
 
     public void setAdvisor(String advisor) {
-        if (advisor == null || advisor.trim().isEmpty()) {
-            throw new IllegalArgumentException("Tên giảng viên hướng dẫn không được để trống!");
-        }
-        this.advisor = advisor.trim();
+        this.advisor = Validator.requireText(advisor, "Tên giảng viên hướng dẫn");
     }
 
     public String getMajor() {
@@ -47,10 +43,7 @@ public class Thesis extends Document {
     }
 
     public void setMajor(String major) {
-        if (major == null || major.trim().isEmpty()) {
-            throw new IllegalArgumentException("Chuyên ngành không được để trống!");
-        }
-        this.major = major.trim();
+        this.major = Validator.requireText(major, "Chuyên ngành");
     }
 
     @Override

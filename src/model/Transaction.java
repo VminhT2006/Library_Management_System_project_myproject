@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import util.Validator;
 
 /**
  * Lớp Transaction đại diện cho Giao dịch mượn / trả tài liệu (SRS Mục 5.5).
@@ -55,10 +56,7 @@ public class Transaction {
     }
 
     public void setTransactionID(String transactionID) {
-        if (transactionID == null || transactionID.trim().isEmpty()) {
-            throw new IllegalArgumentException("Mã giao dịch (transactionID) không được để trống!");
-        }
-        this.transactionID = transactionID.trim().toUpperCase();
+        this.transactionID = Validator.requireText(transactionID, "Mã giao dịch (transactionID)").toUpperCase();
     }
 
     public String getMemberID() {
@@ -66,10 +64,7 @@ public class Transaction {
     }
 
     public void setMemberID(String memberID) {
-        if (memberID == null || memberID.trim().isEmpty()) {
-            throw new IllegalArgumentException("Mã độc giả (memberID) không được để trống!");
-        }
-        this.memberID = memberID.trim().toUpperCase();
+        this.memberID = Validator.requireText(memberID, "Mã độc giả (memberID)").toUpperCase();
     }
 
     public String getDocumentID() {
@@ -77,10 +72,7 @@ public class Transaction {
     }
 
     public void setDocumentID(String documentID) {
-        if (documentID == null || documentID.trim().isEmpty()) {
-            throw new IllegalArgumentException("Mã tài liệu (documentID) không được để trống!");
-        }
-        this.documentID = documentID.trim().toUpperCase();
+        this.documentID = Validator.requireText(documentID, "Mã tài liệu (documentID)").toUpperCase();
     }
 
     public LocalDate getBorrowDate() {
@@ -88,10 +80,7 @@ public class Transaction {
     }
 
     public void setBorrowDate(LocalDate borrowDate) {
-        if (borrowDate == null) {
-            throw new IllegalArgumentException("Ngày mượn không được để trống (null)!");
-        }
-        this.borrowDate = borrowDate;
+        this.borrowDate = Validator.requireNonNull(borrowDate, "Ngày mượn");
     }
 
     public LocalDate getDueDate() {
@@ -99,9 +88,7 @@ public class Transaction {
     }
 
     public void setDueDate(LocalDate dueDate) {
-        if (dueDate == null) {
-            throw new IllegalArgumentException("Ngày hẹn trả không được để trống (null)!");
-        }
+        Validator.requireNonNull(dueDate, "Ngày hẹn trả");
         if (this.borrowDate != null && dueDate.isBefore(this.borrowDate)) {
             throw new IllegalArgumentException("Ngày hẹn trả không được trước ngày mượn!");
         }
@@ -124,10 +111,7 @@ public class Transaction {
     }
 
     public void setStatus(String status) {
-        if (status == null || status.trim().isEmpty()) {
-            throw new IllegalArgumentException("Trạng thái giao dịch không được để trống!");
-        }
-        this.status = status.trim().toUpperCase();
+        this.status = Validator.requireText(status, "Trạng thái giao dịch").toUpperCase();
     }
 
     public double getFineAmount() {
@@ -135,10 +119,7 @@ public class Transaction {
     }
 
     public void setFineAmount(double fineAmount) {
-        if (fineAmount < 0) {
-            throw new IllegalArgumentException("Số tiền phạt không được âm!");
-        }
-        this.fineAmount = fineAmount;
+        this.fineAmount = Validator.requireNonNegative(fineAmount, "Số tiền phạt");
     }
 
     public boolean isRenewed() {

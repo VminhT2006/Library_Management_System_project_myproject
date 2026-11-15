@@ -1,5 +1,7 @@
 package model;
 
+import util.Validator;
+
 /**
  * Lớp Member đại diện cho Độc giả thư viện (SRS Mục 5.5).
  * Kế thừa từ lớp trừu tượng User, tích hợp Ví tiền & Phí phạt (Fine Wallet - FR-15, UC-09).
@@ -47,10 +49,7 @@ public class Member extends User {
     }
 
     public void setTier(String tier) {
-        if (tier == null || tier.trim().isEmpty()) {
-            throw new IllegalArgumentException("Hạng thành viên không được để trống!");
-        }
-        this.tier = tier.trim();
+        this.tier = Validator.requireText(tier, "Hạng thành viên");
     }
 
     public boolean isBanned() {
@@ -66,10 +65,7 @@ public class Member extends User {
     }
 
     public void setBalance(double balance) {
-        if (balance < 0) {
-            throw new IllegalArgumentException("Số dư ví không được âm!");
-        }
-        this.balance = balance;
+        this.balance = Validator.requireNonNegative(balance, "Số dư ví");
     }
 
     public double getUnpaidFine() {
@@ -77,10 +73,7 @@ public class Member extends User {
     }
 
     public void setUnpaidFine(double unpaidFine) {
-        if (unpaidFine < 0) {
-            throw new IllegalArgumentException("Số tiền nợ phạt không được âm!");
-        }
-        this.unpaidFine = unpaidFine;
+        this.unpaidFine = Validator.requireNonNegative(unpaidFine, "Số tiền nợ phạt");
         if (this.unpaidFine > BAN_FINE_THRESHOLD) {
             this.banned = true;
         }
@@ -91,9 +84,7 @@ public class Member extends User {
      * Nếu trước đó tài khoản bị khóa và số dư mới đủ thanh toán nợ phạt, hệ thống tự động trừ nợ và mở khóa.
      */
     public void deposit(double amount) {
-        if (amount <= 0) {
-            throw new IllegalArgumentException("Số tiền nạp phải lớn hơn 0!");
-        }
+        Validator.requirePositive(amount, "Số tiền nạp");
         this.balance += amount;
         if (this.unpaidFine > 0 && this.balance >= this.unpaidFine) {
             this.balance -= this.unpaidFine;
@@ -107,9 +98,7 @@ public class Member extends User {
      * Trả về true nếu ví đủ số dư để trừ hết phạt; false nếu không đủ (phần thiếu được cộng vào unpaidFine).
      */
     public boolean deductFine(double amount) {
-        if (amount < 0) {
-            throw new IllegalArgumentException("Số tiền phạt cần trừ không được âm!");
-        }
+        Validator.requireNonNegative(amount, "Số tiền phạt cần trừ");
         if (amount == 0) {
             return true;
         }

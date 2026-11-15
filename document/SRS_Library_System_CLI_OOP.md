@@ -416,7 +416,7 @@ Hệ thống được tổ chức thành các màn hình và thành phần giao 
 ### 6.1. Màn hình Đăng nhập (`LoginFrame`)
 * **Kích thước chuẩn:** $450 \times 400$ px, căn giữa màn hình (`setLocationRelativeTo(null)`).
 * **Thành phần:**
-  - Tiêu đề ứng dụng ("HỆ THỐNG QUẢN LÝ THƯ VIỆN - OOP LMS").
+  - Tiêu đề ứng dụng ("HỆ THỐNG QUẢN LÝ THƯ VIỆN - Library Management System").
   - Ô nhập `txtUsername`, ô nhập mật khẩu `txtPassword` có icon trực quan.
   - Nút bấm `btnLogin` (Đăng nhập) và `btnRegister` (Đăng ký tài khoản mới).
   - Nút `btnGuest` ("Duyệt danh mục tài liệu với quyền Khách").

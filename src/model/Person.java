@@ -1,5 +1,7 @@
 package model;
 
+import util.Validator;
+
 /**
  * Lớp cơ sở Person đại diện cho thông tin con người trong hệ thống.
  */
@@ -26,10 +28,7 @@ public class Person {
     }
 
     public void setFullName(String fullName) {
-        if (fullName == null || fullName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Họ và tên không được để trống!");
-        }
-        this.fullName = fullName.trim();
+        this.fullName = Validator.requireText(fullName, "Họ và tên");
     }
 
     public String getEmail() {
@@ -37,10 +36,7 @@ public class Person {
     }
 
     public void setEmail(String email) {
-        if (email == null || email.trim().isEmpty()) {
-            throw new IllegalArgumentException("Email không được để trống!");
-        }
-        this.email = email.trim();
+        this.email = Validator.requireEmail(email);
     }
 
     public String getPhone() {
@@ -48,9 +44,6 @@ public class Person {
     }
 
     public void setPhone(String phone) {
-        if (phone == null || phone.trim().isEmpty()) {
-            throw new IllegalArgumentException("Số điện thoại không được để trống!");
-        }
-        this.phone = phone.trim();
+        this.phone = Validator.requirePhone(phone);
     }
 }

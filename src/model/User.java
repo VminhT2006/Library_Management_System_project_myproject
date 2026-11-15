@@ -1,5 +1,7 @@
 package model;
 
+import util.Validator;
+
 /**
  * Lớp trừu tượng User đại diện cho tài khoản người dùng trong hệ thống (SRS Mục 5.5).
  * Kế thừa từ lớp Person.
@@ -35,10 +37,7 @@ public abstract class User extends Person {
     }
 
     public void setUserID(String userID) {
-        if (userID == null || userID.trim().isEmpty()) {
-            throw new IllegalArgumentException("Mã người dùng (ID) không được để trống!");
-        }
-        this.userID = userID.trim().toUpperCase();
+        this.userID = Validator.requireText(userID, "Mã người dùng (ID)").toUpperCase();
     }
 
     public String getUserName() {
@@ -46,10 +45,7 @@ public abstract class User extends Person {
     }
 
     public void setUserName(String userName) {
-        if (userName == null || userName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Tên đăng nhập không được để trống!");
-        }
-        this.userName = userName.trim();
+        this.userName = Validator.requireText(userName, "Tên đăng nhập");
     }
 
     public String getPassword() {
@@ -57,10 +53,7 @@ public abstract class User extends Person {
     }
 
     public void setPassword(String password) {
-        if (password == null || password.trim().isEmpty()) {
-            throw new IllegalArgumentException("Mật khẩu không được để trống!");
-        }
-        this.password = password.trim();
+        this.password = Validator.requireText(password, "Mật khẩu");
     }
 
     public String getRole() {
@@ -68,10 +61,7 @@ public abstract class User extends Person {
     }
 
     public void setRole(String role) {
-        if (role == null || role.trim().isEmpty()) {
-            throw new IllegalArgumentException("Vai trò (role) không được để trống!");
-        }
-        this.role = role.trim().toUpperCase();
+        this.role = Validator.requireText(role, "Vai trò (role)").toUpperCase();
     }
 
     /**
