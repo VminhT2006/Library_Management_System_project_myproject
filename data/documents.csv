@@ -1,0 +1,6 @@
+BOOK;B001;Lập Trình Hướng Đối Tượng Java;2024;Nguyễn Văn A;NXB Giáo Dục;5;
+BOOK;B002;Clean Code;2020;Robert C. Martin;Prentice Hall;12;
+BOOK;B003;Design Patterns;2022;Erich Gamma;Addison-Wesley;0;MEM01,MEM02
+MAGAZINE;M001;Tạp Chí Tin Học & Đời Sống;2025;15;10;8
+THESIS;T001;Ứng Dụng MVC Trong Java Swing;2024;ĐH Bách Khoa;TS. Lê Hoàng;CNTT
+EBOOK;E001;Effective Java Digital Edition;2023;https://library.edu.vn/effective-java.pdf;8.5;PDF
