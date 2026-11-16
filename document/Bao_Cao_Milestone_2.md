@@ -3,6 +3,14 @@
 
 ---
 
+## MỤC LỤC
+1. [MILESTONE 2 – OBJECT-ORIENTED ANALYSIS (Phân tích Hướng đối tượng)](#milestone-2--object-oriented-analysis-phân-tích-hướng-đối-tượng)
+   - [2.1. Phương pháp xác định Đối tượng và Lớp](#21-phương-pháp-xác-định-đối-tượng-và-lớp)
+   - [2.2. Bảng xác định Lớp và Trách nhiệm (Class–Responsibility Table)](#22-bảng-xác-định-lớp-và-trách-nhiệm-classresponsibility-table)
+   - [2.3. Cộng tác giữa các Đối tượng (Object Collaboration)](#23-cộng-tác-giữa-các-đối-tượng-object-collaboration)
+
+---
+
 # MILESTONE 2 – OBJECT-ORIENTED ANALYSIS (Phân tích Hướng đối tượng)
 *(Tương ứng giai đoạn: Xác định Objects/Classes và Trách nhiệm – Sau chương 3)*
 

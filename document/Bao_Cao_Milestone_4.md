@@ -3,6 +3,15 @@
 
 ---
 
+## MỤC LỤC
+1. [MILESTONE 4 – CORE IMPLEMENTATION (Cài đặt cốt lõi)](#milestone-4--core-implementation-cài-đặt-cốt-lõi)
+   - [4.1. Kiến trúc Gói mã nguồn (Package Organization)](#41-kiến-trúc-gói-mã-nguồn-package-organization)
+   - [4.2. Cài đặt Java Classes & Nguyên lý OOP](#42-cài-đặt-java-classes--nguyên-lý-oop)
+   - [4.3. Ứng dụng Java Collections Framework & Stream API](#43-ứng-dụng-java-collections-framework--stream-api)
+   - [4.4. Cơ chế Xử lý Ngoại lệ (Exception Handling)](#44-cơ-chế-xử-lý-ngoại-lệ-exception-handling)
+
+---
+
 # MILESTONE 4 – CORE IMPLEMENTATION (Cài đặt cốt lõi)
 *(Tương ứng giai đoạn: Java Classes + Collections + Exception Handling – Sau chương 8)*
 
