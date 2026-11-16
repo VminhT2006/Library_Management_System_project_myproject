@@ -20,7 +20,10 @@ import util.Validator;
  * Kết hợp Strategy Pattern (IBookSorter) để sắp xếp sách và hỗ trợ CRUD, Tìm kiếm tức thì, Đọc/Ghi File.
  */
 public class DocumentManager implements IFileService {
-    private static final String DATA_FILE = "data/documents.csv";
+    private static final String DATA_FILE = "data/documents-v2.csv";
+    private static final String HEADER =
+            "id,type,title,publicationYear,author,publisher,quantity,waitingList,"
+            + "issueNumber,publishMonth,university,advisor,major,downloadUrl,fileSizeMb,format";
 
     private final List<Document> documents;
     private IBookSorter sorter;
@@ -146,71 +149,57 @@ public class DocumentManager implements IFileService {
     @Override
     public void loadData() {
         documents.clear();
-        List<String> lines = FileUtil.readLines(DATA_FILE);
+        List<String> lines = FileUtil.readLines(FileUtil.resolveForRead(DATA_FILE));
         for (String line : lines) {
-            String[] parts = line.split(";", -1);
-            if (parts.length < 4) {
+            if (line.equals(HEADER)) {
+                continue; // bỏ qua dòng tiêu đề
+            }
+            List<String> p = FileUtil.parseCsvLine(line);
+            if (p.size() < 8) {
                 continue;
             }
             try {
-                String type = parts[0].trim().toUpperCase();
-                String id = parts[1].trim();
-                String title = parts[2].trim();
-                int year = Integer.parseInt(parts[3].trim());
+                String id = p.get(0).trim();
+                String type = p.get(1).trim().toUpperCase();
+                String title = p.get(2).trim();
+                int year = Integer.parseInt(p.get(3).trim());
 
                 switch (type) {
-                    case "BOOK":
-                        if (parts.length >= 7) {
-                            Book book = new Book(
-                                    id, title, year,
-                                    parts[4].trim(),
-                                    parts[5].trim(),
-                                    Integer.parseInt(parts[6].trim())
-                            );
-                            if (parts.length >= 8 && !parts[7].trim().isEmpty()) {
-                                for (String memberId : parts[7].split(",")) {
-                                    if (!memberId.trim().isEmpty()) {
-                                        book.getWaitingList().offer(memberId.trim().toUpperCase());
-                                    }
+                    case "BOOK": {
+                        Book book = new Book(id, title, year,
+                                p.get(4).trim(), p.get(5).trim(),
+                                Integer.parseInt(p.get(6).trim()));
+                        String waiting = p.get(7).trim();
+                        if (!waiting.isEmpty()) {
+                            for (String memberId : waiting.split("\\|")) {
+                                if (!memberId.trim().isEmpty()) {
+                                    book.getWaitingList().offer(memberId.trim().toUpperCase());
                                 }
                             }
-                            documents.add(book);
                         }
+                        documents.add(book);
                         break;
+                    }
                     case "MAGAZINE":
-                        if (parts.length >= 7) {
-                            documents.add(new Magazine(
-                                    id, title, year,
-                                    Integer.parseInt(parts[4].trim()),
-                                    Integer.parseInt(parts[5].trim()),
-                                    Integer.parseInt(parts[6].trim())
-                            ));
-                        }
+                        documents.add(new Magazine(id, title, year,
+                                Integer.parseInt(p.get(8).trim()),
+                                Integer.parseInt(p.get(9).trim()),
+                                Integer.parseInt(p.get(6).trim())));
                         break;
                     case "THESIS":
-                        if (parts.length >= 7) {
-                            documents.add(new Thesis(
-                                    id, title, year,
-                                    parts[4].trim(),
-                                    parts[5].trim(),
-                                    parts[6].trim()
-                            ));
-                        }
+                        documents.add(new Thesis(id, title, year,
+                                p.get(10).trim(), p.get(11).trim(), p.get(12).trim()));
                         break;
                     case "EBOOK":
-                        if (parts.length >= 7) {
-                            documents.add(new EBook(
-                                    id, title, year,
-                                    parts[4].trim(),
-                                    Double.parseDouble(parts[5].trim()),
-                                    parts[6].trim()
-                            ));
-                        }
+                        documents.add(new EBook(id, title, year,
+                                p.get(13).trim(),
+                                Double.parseDouble(p.get(14).trim()),
+                                p.get(15).trim()));
                         break;
                     default:
                         break;
                 }
-            } catch (Exception e) {
+            } catch (RuntimeException e) {
                 System.err.println("Bỏ qua dòng dữ liệu tài liệu lỗi: " + line + " (" + e.getMessage() + ")");
             }
         }
@@ -219,31 +208,33 @@ public class DocumentManager implements IFileService {
     @Override
     public boolean saveData() {
         List<String> lines = new ArrayList<>();
+        lines.add(HEADER);
         for (Document doc : documents) {
             if (doc instanceof Book) {
                 Book b = (Book) doc;
-                String queueStr = String.join(",", b.getWaitingList());
-                lines.add(String.join(";",
-                        "BOOK", b.getId(), b.getTitle(), String.valueOf(b.getPublicationYear()),
-                        b.getAuthor(), b.getPublisher(), String.valueOf(b.getQuantity()), queueStr));
+                String queueStr = String.join("|", b.getWaitingList());
+                lines.add(FileUtil.toCsvLine(b.getId(), "Book", b.getTitle(),
+                        String.valueOf(b.getPublicationYear()), b.getAuthor(), b.getPublisher(),
+                        String.valueOf(b.getQuantity()), queueStr, "", "", "", "", "", "", "", ""));
             } else if (doc instanceof Magazine) {
                 Magazine m = (Magazine) doc;
-                lines.add(String.join(";",
-                        "MAGAZINE", m.getId(), m.getTitle(), String.valueOf(m.getPublicationYear()),
+                lines.add(FileUtil.toCsvLine(m.getId(), "Magazine", m.getTitle(),
+                        String.valueOf(m.getPublicationYear()), "", "",
+                        String.valueOf(m.getQuantity()), "",
                         String.valueOf(m.getIssueNumber()), String.valueOf(m.getPublishMonth()),
-                        String.valueOf(m.getQuantity())));
+                        "", "", "", "", "", ""));
             } else if (doc instanceof Thesis) {
                 Thesis t = (Thesis) doc;
-                lines.add(String.join(";",
-                        "THESIS", t.getId(), t.getTitle(), String.valueOf(t.getPublicationYear()),
-                        t.getUniversity(), t.getAdvisor(), t.getMajor()));
+                lines.add(FileUtil.toCsvLine(t.getId(), "Thesis", t.getTitle(),
+                        String.valueOf(t.getPublicationYear()), "", "", "1", "", "", "",
+                        t.getUniversity(), t.getAdvisor(), t.getMajor(), "", "", ""));
             } else if (doc instanceof EBook) {
                 EBook e = (EBook) doc;
-                lines.add(String.join(";",
-                        "EBOOK", e.getId(), e.getTitle(), String.valueOf(e.getPublicationYear()),
+                lines.add(FileUtil.toCsvLine(e.getId(), "EBook", e.getTitle(),
+                        String.valueOf(e.getPublicationYear()), "", "", "999", "", "", "", "", "", "",
                         e.getDownloadUrl(), String.valueOf(e.getFileSizeMb()), e.getFormat()));
             }
         }
-        return FileUtil.writeLines(DATA_FILE, lines);
+        return FileUtil.writeLines(FileUtil.resolveForWrite(DATA_FILE), lines);
     }
 }

@@ -50,6 +50,96 @@ public final class FileUtil {
         return lines;
     }
 
+    // =========================================================================
+    // ĐỊNH VỊ FILE DỮ LIỆU LINH HOẠT THEO THƯ MỤC LÀM VIỆC (IDE / dòng lệnh)
+    // =========================================================================
+
+    /** Các tiền tố thư mục thử lần lượt để tìm file dữ liệu dù chạy từ vị trí nào. */
+    private static final String[] BASE_PREFIXES = {
+            "",
+            "src/",
+            "src/bai_tap_lon/Library_Management_System_project_myproject/src/"
+    };
+
+    /**
+     * Trả về đường dẫn thực tế của file dữ liệu để ĐỌC (file đầu tiên tồn tại).
+     * Nếu không tìm thấy ở đâu, trả về chính relativePath (sẽ đọc ra danh sách rỗng).
+     */
+    public static String resolveForRead(String relativePath) {
+        for (String prefix : BASE_PREFIXES) {
+            File file = new File(prefix + relativePath);
+            if (file.exists()) {
+                return prefix + relativePath;
+            }
+        }
+        return relativePath;
+    }
+
+    /**
+     * Trả về đường dẫn để GHI: ưu tiên đúng file đang tồn tại (ghi đè tại chỗ),
+     * nếu chưa có thì chọn thư mục cha đã tồn tại đầu tiên, cuối cùng dùng relativePath.
+     */
+    public static String resolveForWrite(String relativePath) {
+        for (String prefix : BASE_PREFIXES) {
+            if (new File(prefix + relativePath).exists()) {
+                return prefix + relativePath;
+            }
+        }
+        for (String prefix : BASE_PREFIXES) {
+            File parent = new File(prefix + relativePath).getParentFile();
+            if (parent != null && parent.exists()) {
+                return prefix + relativePath;
+            }
+        }
+        return relativePath;
+    }
+
+    // =========================================================================
+    // TIỆN ÍCH CSV CHUẨN (dấu phẩy, hỗ trợ trường có dấu nháy kép)
+    // =========================================================================
+
+    /** Tách một dòng CSV phân cách bằng dấu phẩy, hỗ trợ trường bọc trong dấu "..." . */
+    public static List<String> parseCsvLine(String line) {
+        List<String> result = new ArrayList<>();
+        StringBuilder field = new StringBuilder();
+        boolean inQuotes = false;
+        for (int i = 0; i < line.length(); i++) {
+            char c = line.charAt(i);
+            if (c == '"') {
+                if (inQuotes && i + 1 < line.length() && line.charAt(i + 1) == '"') {
+                    field.append('"');
+                    i++;
+                } else {
+                    inQuotes = !inQuotes;
+                }
+            } else if (c == ',' && !inQuotes) {
+                result.add(field.toString());
+                field.setLength(0);
+            } else {
+                field.append(c);
+            }
+        }
+        result.add(field.toString());
+        return result;
+    }
+
+    /** Ghép các trường thành một dòng CSV, tự bọc dấu nháy khi gặp dấu phẩy/nháy/xuống dòng. */
+    public static String toCsvLine(String... fields) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < fields.length; i++) {
+            if (i > 0) {
+                sb.append(',');
+            }
+            String value = fields[i] == null ? "" : fields[i];
+            if (value.contains(",") || value.contains("\"") || value.contains("\n") || value.contains("\r")) {
+                sb.append('"').append(value.replace("\"", "\"\"")).append('"');
+            } else {
+                sb.append(value);
+            }
+        }
+        return sb.toString();
+    }
+
     /**
      * Ghi danh sách các dòng văn bản xuống file theo bảng mã UTF-8.
      * Tự động tạo thư mục cha (ví dụ: thư mục data/) nếu chưa tồn tại.

@@ -1,0 +1,121 @@
+id,type,title,publicationYear,author,publisher,quantity,waitingList,issueNumber,publishMonth,university,advisor,major,downloadUrl,fileSizeMb,format
+DOC001,Book,Lập trình Hướng đối tượng với Java,2026,Nguyễn Văn Hiệu,NXB Giáo Dục,2,,,,,,,,,
+DOC002,Book,Cấu trúc Dữ liệu và Giải thuật,2026,Đỗ Xuân Lôi,NXB Khoa học và Kỹ thuật,14,,,,,,,,,
+DOC003,Book,Clean Code - Mã sạch và Con đường trở thành Lập trình viên giỏi,2020,Robert C. Martin,NXB Dân Trí,0,MEM003|MEM100,,,,,,,,
+DOC004,Book,Design Patterns - Các mẫu thiết kế trong OOP,2019,Erich Gamma,NXB Thông tin và Truyền thông,13,,,,,,,,,
+DOC005,Book,Cơ sở Dữ liệu Quan hệ & SQL,2023,Lê Tiến Vương,NXB Đại học Quốc gia,9,,,,,,,,,
+DOC006,Book,Mạng Máy tính và Truyền thông Dữ liệu,2020,Andrew S. Tanenbaum,NXB Bách Khoa,10,,,,,,,,,
+DOC007,Book,Hệ điều hành Hiện đại,2026,Abraham Silberschatz,NXB Khoa học và Kỹ thuật,6,,,,,,,,,
+DOC008,Book,Trí tuệ Nhân tạo và Học máy Cơ bản,2017,Stuart Russell,NXB Thế Giới,0,MEM089|MEM025|MEM069,,,,,,,,
+DOC009,Book,Học sâu (Deep Learning) Thực hành với Python,2016,Ian Goodfellow,NXB Công Thương,2,,,,,,,,,
+DOC010,Book,Thị giác Máy tính và Xử lý Ảnh,2018,Richard Szeliski,NXB Bách Khoa,6,,,,,,,,,
+DOC011,Book,Nhập môn Kinh tế lượng,2019,Damodar N. Gujarati,NXB Kinh tế Quốc dân,8,,,,,,,,,
+DOC012,Book,Kỹ thuật Lập trình C++ Nâng cao,2019,Bjarne Stroustrup,NXB Giáo Dục,10,,,,,,,,,
+DOC013,Book,Kiến trúc Máy tính và Hợp ngữ 8086,2026,David A. Patterson,NXB Đại học Quốc gia,3,,,,,,,,,
+DOC014,Book,An toàn Bảo mật Hệ thống Thông tin,2020,William Stallings,NXB Thông tin và Truyền thông,0,MEM073,,,,,,,,
+DOC015,Book,Phân tích Thiết kế Hệ thống Thông tin,2022,Alan Dennis,NXB Lao Động,12,,,,,,,,,
+DOC016,Book,Giải tích Toán học Tập 1,2024,Trần Đức Long,NXB Đại học Quốc gia,11,,,,,,,,,
+DOC017,Book,Đại số Tuyến tính và Ứng dụng,2025,Gilbert Strang,NXB Khoa học và Kỹ thuật,9,,,,,,,,,
+DOC018,Book,Xác suất Thống kê trong Khoa học Dữ liệu,2018,Peter Bruce,NXB Trẻ,2,,,,,,,,,
+DOC019,Book,Tư duy Phản biện và Giải quyết Vấn đề,2016,Richard Paul,NXB Tổng Hợp TP.HCM,0,MEM054|MEM006,,,,,,,,
+DOC020,Book,Nhà Giả Kim,2018,Paulo Coelho,NXB Hội Nhà Văn,9,,,,,,,,,
+DOC021,Book,Đắc Nhân Tâm,2024,Dale Carnegie,NXB Tổng Hợp TP.HCM,4,,,,,,,,,
+DOC022,Book,Tuổi Trẻ Đáng Giá Bao Nhiêu,2023,Rosie Nguyễn,NXB Hội Nhà Văn,11,,,,,,,,,
+DOC023,Book,Lược Sử Thời Gian,2026,Stephen Hawking,NXB Trẻ,6,,,,,,,,,
+DOC024,Book,Sapiens: Lược Sử Loài Người,2021,Yuval Noah Harari,NXB Tri Thức,6,,,,,,,,,
+DOC025,Book,Tâm Lý Học Hành Vi,2021,Daniel Kahneman,NXB Thế Giới,10,,,,,,,,,
+DOC026,Book,Lập trình Hướng đối tượng với Java (Tái bản lần 3),2023,Nguyễn Văn Hiệu,NXB Giáo Dục,5,,,,,,,,,
+DOC027,Book,Cấu trúc Dữ liệu và Giải thuật (Tái bản lần 1),2023,Đỗ Xuân Lôi,NXB Khoa học và Kỹ thuật,0,MEM108|MEM033,,,,,,,,
+DOC028,Book,Clean Code - Mã sạch và Con đường trở thành Lập trình viên giỏi (Tái bản lần 2),2016,Robert C. Martin,NXB Dân Trí,11,,,,,,,,,
+DOC029,Book,Design Patterns - Các mẫu thiết kế trong OOP (Tái bản lần 3),2023,Erich Gamma,NXB Thông tin và Truyền thông,3,,,,,,,,,
+DOC030,Book,Cơ sở Dữ liệu Quan hệ & SQL (Tái bản lần 1),2016,Lê Tiến Vương,NXB Đại học Quốc gia,8,,,,,,,,,
+DOC031,Book,Mạng Máy tính và Truyền thông Dữ liệu (Tái bản lần 2),2021,Andrew S. Tanenbaum,NXB Bách Khoa,5,,,,,,,,,
+DOC032,Book,Hệ điều hành Hiện đại (Tái bản lần 3),2023,Abraham Silberschatz,NXB Khoa học và Kỹ thuật,4,,,,,,,,,
+DOC033,Book,Trí tuệ Nhân tạo và Học máy Cơ bản (Tái bản lần 1),2021,Stuart Russell,NXB Thế Giới,0,MEM066|MEM108,,,,,,,,
+DOC034,Book,Học sâu (Deep Learning) Thực hành với Python (Tái bản lần 2),2022,Ian Goodfellow,NXB Công Thương,5,,,,,,,,,
+DOC035,Book,Thị giác Máy tính và Xử lý Ảnh (Tái bản lần 3),2019,Richard Szeliski,NXB Bách Khoa,10,,,,,,,,,
+DOC036,Book,Nhập môn Kinh tế lượng (Tái bản lần 1),2016,Damodar N. Gujarati,NXB Kinh tế Quốc dân,14,,,,,,,,,
+DOC037,Book,Kỹ thuật Lập trình C++ Nâng cao (Tái bản lần 2),2022,Bjarne Stroustrup,NXB Giáo Dục,14,,,,,,,,,
+DOC038,Book,Kiến trúc Máy tính và Hợp ngữ 8086 (Tái bản lần 3),2017,David A. Patterson,NXB Đại học Quốc gia,12,,,,,,,,,
+DOC039,Book,An toàn Bảo mật Hệ thống Thông tin (Tái bản lần 1),2026,William Stallings,NXB Thông tin và Truyền thông,11,,,,,,,,,
+DOC040,Book,Phân tích Thiết kế Hệ thống Thông tin (Tái bản lần 2),2024,Alan Dennis,NXB Lao Động,11,,,,,,,,,
+DOC041,Book,Giải tích Toán học Tập 1 (Tái bản lần 3),2024,Trần Đức Long,NXB Đại học Quốc gia,0,MEM062|MEM079,,,,,,,,
+DOC042,Book,Đại số Tuyến tính và Ứng dụng (Tái bản lần 1),2017,Gilbert Strang,NXB Khoa học và Kỹ thuật,14,,,,,,,,,
+DOC043,Book,Xác suất Thống kê trong Khoa học Dữ liệu (Tái bản lần 2),2024,Peter Bruce,NXB Trẻ,9,,,,,,,,,
+DOC044,Book,Tư duy Phản biện và Giải quyết Vấn đề (Tái bản lần 3),2025,Richard Paul,NXB Tổng Hợp TP.HCM,6,,,,,,,,,
+DOC045,Book,Nhà Giả Kim (Tái bản lần 1),2023,Paulo Coelho,NXB Hội Nhà Văn,6,,,,,,,,,
+DOC046,Book,Đắc Nhân Tâm (Tái bản lần 2),2026,Dale Carnegie,NXB Tổng Hợp TP.HCM,6,,,,,,,,,
+DOC047,Book,Tuổi Trẻ Đáng Giá Bao Nhiêu (Tái bản lần 3),2021,Rosie Nguyễn,NXB Hội Nhà Văn,3,,,,,,,,,
+DOC048,Book,Lược Sử Thời Gian (Tái bản lần 1),2017,Stephen Hawking,NXB Trẻ,0,MEM103|MEM023|MEM098,,,,,,,,
+DOC049,Book,Sapiens: Lược Sử Loài Người (Tái bản lần 2),2020,Yuval Noah Harari,NXB Tri Thức,14,,,,,,,,,
+DOC050,Book,Tâm Lý Học Hành Vi (Tái bản lần 3),2024,Daniel Kahneman,NXB Thế Giới,9,,,,,,,,,
+DOC051,Magazine,Tạp chí Công nghệ Thông tin & Truyền thông - Số 322,2023,,,8,,322,7,,,,,,
+DOC052,Magazine,Tạp chí Khoa học và Công nghệ Việt Nam - Số 107,2024,,,8,,107,8,,,,,,
+DOC053,Magazine,Tạp chí Tự động hóa Ngày nay - Số 209,2024,,,18,,209,9,,,,,,
+DOC054,Magazine,Tạp chí Kinh tế và Dự báo - Số 154,2026,,,6,,154,5,,,,,,
+DOC055,Magazine,Tạp chí An toàn Thông tin - Số 243,2025,,,13,,243,11,,,,,,
+DOC056,Magazine,Tạp chí Điện tử và Viễn thông - Số 266,2024,,,6,,266,7,,,,,,
+DOC057,Magazine,Tạp chí Toán học và Tuổi trẻ - Số 255,2024,,,6,,255,9,,,,,,
+DOC058,Magazine,Tạp chí Trí tuệ Nhân tạo Ứng dụng - Số 133,2023,,,3,,133,11,,,,,,
+DOC059,Magazine,Tạp chí Công nghệ Thông tin & Truyền thông - Số 171,2024,,,6,,171,5,,,,,,
+DOC060,Magazine,Tạp chí Khoa học và Công nghệ Việt Nam - Số 168,2025,,,6,,168,9,,,,,,
+DOC061,Magazine,Tạp chí Tự động hóa Ngày nay - Số 217,2024,,,3,,217,3,,,,,,
+DOC062,Magazine,Tạp chí Kinh tế và Dự báo - Số 292,2024,,,15,,292,3,,,,,,
+DOC063,Magazine,Tạp chí An toàn Thông tin - Số 264,2026,,,19,,264,10,,,,,,
+DOC064,Magazine,Tạp chí Điện tử và Viễn thông - Số 345,2025,,,9,,345,1,,,,,,
+DOC065,Magazine,Tạp chí Toán học và Tuổi trẻ - Số 231,2023,,,16,,231,6,,,,,,
+DOC066,Magazine,Tạp chí Trí tuệ Nhân tạo Ứng dụng - Số 274,2026,,,6,,274,12,,,,,,
+DOC067,Magazine,Tạp chí Công nghệ Thông tin & Truyền thông - Số 330,2024,,,18,,330,6,,,,,,
+DOC068,Magazine,Tạp chí Khoa học và Công nghệ Việt Nam - Số 110,2023,,,3,,110,8,,,,,,
+DOC069,Magazine,Tạp chí Tự động hóa Ngày nay - Số 124,2025,,,12,,124,6,,,,,,
+DOC070,Magazine,Tạp chí Kinh tế và Dự báo - Số 293,2024,,,18,,293,1,,,,,,
+DOC071,Magazine,Tạp chí An toàn Thông tin - Số 148,2026,,,15,,148,2,,,,,,
+DOC072,Magazine,Tạp chí Điện tử và Viễn thông - Số 151,2024,,,9,,151,3,,,,,,
+DOC073,Magazine,Tạp chí Toán học và Tuổi trẻ - Số 269,2024,,,13,,269,8,,,,,,
+DOC074,Magazine,Tạp chí Trí tuệ Nhân tạo Ứng dụng - Số 140,2026,,,15,,140,9,,,,,,
+DOC075,Magazine,Tạp chí Công nghệ Thông tin & Truyền thông - Số 217,2024,,,11,,217,6,,,,,,
+DOC076,Thesis,Ứng dụng Deep Learning trong nhận diện khuôn mặt chống giả mạo,2025,,,1,,,,Học viện Công nghệ Bưu chính Viễn thông,TS. Trần Minh Tuấn,Trí tuệ Nhân tạo,,,
+DOC077,Thesis,Xây dựng hệ thống phát hiện xâm nhập mạng bằng Machine Learning,2026,,,1,,,,Đại học Bách Khoa Hà Nội,PGS.TS. Nguyễn Hoàng Nam,An toàn Thông tin,,,
+DOC078,Thesis,Tối ưu hóa truy vấn trên cơ sở dữ liệu phân tán quy mô lớn,2026,,,1,,,,Đại học Công nghệ - ĐHQGHN,TS. Lê Quang Huy,Hệ thống Thông tin,,,
+DOC079,Thesis,Phân tích cảm xúc bình luận tiếng Việt sử dụng mô hình Transformer,2025,,,1,,,,Học viện Công nghệ Bưu chính Viễn thông,TS. Phạm Thu Hà,Khoa học Máy tính,,,
+DOC080,Thesis,Nghiên cứu bài toán định tuyến phương tiện giao thông thông minh,2022,,,1,,,,Đại học Bách Khoa Hà Nội,PGS.TS. Vũ Đức Mạnh,Kỹ thuật Phần mềm,,,
+DOC081,Thesis,Hệ thống nhận dạng ký tự quang học (OCR) cho hóa đơn tiếng Việt,2023,,,1,,,,Học viện Kỹ thuật Mật mã,TS. Đặng Quốc Bảo,Thị giác Máy tính,,,
+DOC082,Thesis,Xây dựng mô hình dự báo giá trị cầu thủ bóng đá bằng hồi quy tuyến tính,2023,,,1,,,,Đại học Kinh tế Quốc dân,TS. Hoàng Thị Lan,Khoa học Dữ liệu,,,
+DOC083,Thesis,Ứng dụng Blockchain trong truy xuất nguồn gốc nông sản,2022,,,1,,,,Đại học FPT,ThS. Ngô Văn Đạt,Công nghệ Thông tin,,,
+DOC084,Thesis,Phát triển hệ thống RAG đa phương thức hỗ trợ tra cứu tài liệu kỹ thuật,2022,,,1,,,,Học viện Công nghệ Bưu chính Viễn thông,TS. Nguyễn Văn Dũng,Trí tuệ Nhân tạo,,,
+DOC085,Thesis,Thiết kế mạch đồng hồ số và hệ thống nhúng thời gian thực,2024,,,1,,,,Đại học Bách Khoa TP.HCM,PGS.TS. Bùi Thanh Sơn,Kỹ thuật Điện tử,,,
+DOC086,Thesis,Ứng dụng Deep Learning trong nhận diện khuôn mặt chống giả mạo - Nghiên cứu mở rộng 1,2026,,,1,,,,Học viện Công nghệ Bưu chính Viễn thông,TS. Trần Minh Tuấn,Trí tuệ Nhân tạo,,,
+DOC087,Thesis,Xây dựng hệ thống phát hiện xâm nhập mạng bằng Machine Learning - Nghiên cứu mở rộng 2,2023,,,1,,,,Đại học Bách Khoa Hà Nội,PGS.TS. Nguyễn Hoàng Nam,An toàn Thông tin,,,
+DOC088,Thesis,Tối ưu hóa truy vấn trên cơ sở dữ liệu phân tán quy mô lớn - Nghiên cứu mở rộng 3,2022,,,1,,,,Đại học Công nghệ - ĐHQGHN,TS. Lê Quang Huy,Hệ thống Thông tin,,,
+DOC089,Thesis,Phân tích cảm xúc bình luận tiếng Việt sử dụng mô hình Transformer - Nghiên cứu mở rộng 4,2023,,,1,,,,Học viện Công nghệ Bưu chính Viễn thông,TS. Phạm Thu Hà,Khoa học Máy tính,,,
+DOC090,Thesis,Nghiên cứu bài toán định tuyến phương tiện giao thông thông minh - Nghiên cứu mở rộng 5,2023,,,1,,,,Đại học Bách Khoa Hà Nội,PGS.TS. Vũ Đức Mạnh,Kỹ thuật Phần mềm,,,
+DOC091,Thesis,Hệ thống nhận dạng ký tự quang học (OCR) cho hóa đơn tiếng Việt - Nghiên cứu mở rộng 6,2025,,,1,,,,Học viện Kỹ thuật Mật mã,TS. Đặng Quốc Bảo,Thị giác Máy tính,,,
+DOC092,Thesis,Xây dựng mô hình dự báo giá trị cầu thủ bóng đá bằng hồi quy tuyến tính - Nghiên cứu mở rộng 7,2023,,,1,,,,Đại học Kinh tế Quốc dân,TS. Hoàng Thị Lan,Khoa học Dữ liệu,,,
+DOC093,Thesis,Ứng dụng Blockchain trong truy xuất nguồn gốc nông sản - Nghiên cứu mở rộng 8,2025,,,1,,,,Đại học FPT,ThS. Ngô Văn Đạt,Công nghệ Thông tin,,,
+DOC094,Thesis,Phát triển hệ thống RAG đa phương thức hỗ trợ tra cứu tài liệu kỹ thuật - Nghiên cứu mở rộng 9,2022,,,1,,,,Học viện Công nghệ Bưu chính Viễn thông,TS. Nguyễn Văn Dũng,Trí tuệ Nhân tạo,,,
+DOC095,Thesis,Thiết kế mạch đồng hồ số và hệ thống nhúng thời gian thực - Nghiên cứu mở rộng 10,2026,,,1,,,,Đại học Bách Khoa TP.HCM,PGS.TS. Bùi Thanh Sơn,Kỹ thuật Điện tử,,,
+DOC096,EBook,[E-Book] Lập trình Hướng đối tượng với Java,2023,Nguyễn Văn Hiệu,,999,,,,,,,https://library.edu.vn/ebooks/doc096.pdf,46.7,PDF
+DOC097,EBook,[E-Book] Cấu trúc Dữ liệu và Giải thuật,2024,Đỗ Xuân Lôi,,999,,,,,,,https://library.edu.vn/ebooks/doc097.epub,16.3,EPUB
+DOC098,EBook,[E-Book] Clean Code - Mã sạch và Con đường trở thành Lập trình viên giỏi,2026,Robert C. Martin,,999,,,,,,,https://library.edu.vn/ebooks/doc098.mobi,21.2,MOBI
+DOC099,EBook,[E-Book] Design Patterns - Các mẫu thiết kế trong OOP,2023,Erich Gamma,,999,,,,,,,https://library.edu.vn/ebooks/doc099.pdf,26.7,PDF
+DOC100,EBook,[E-Book] Cơ sở Dữ liệu Quan hệ & SQL,2026,Lê Tiến Vương,,999,,,,,,,https://library.edu.vn/ebooks/doc100.epub,40.9,EPUB
+DOC101,EBook,[E-Book] Mạng Máy tính và Truyền thông Dữ liệu,2020,Andrew S. Tanenbaum,,999,,,,,,,https://library.edu.vn/ebooks/doc101.mobi,47.3,MOBI
+DOC102,EBook,[E-Book] Hệ điều hành Hiện đại,2022,Abraham Silberschatz,,999,,,,,,,https://library.edu.vn/ebooks/doc102.pdf,38.8,PDF
+DOC103,EBook,[E-Book] Trí tuệ Nhân tạo và Học máy Cơ bản,2026,Stuart Russell,,999,,,,,,,https://library.edu.vn/ebooks/doc103.epub,46.7,EPUB
+DOC104,EBook,[E-Book] Học sâu (Deep Learning) Thực hành với Python,2019,Ian Goodfellow,,999,,,,,,,https://library.edu.vn/ebooks/doc104.mobi,20.3,MOBI
+DOC105,EBook,[E-Book] Thị giác Máy tính và Xử lý Ảnh,2024,Richard Szeliski,,999,,,,,,,https://library.edu.vn/ebooks/doc105.pdf,44.9,PDF
+DOC106,EBook,[E-Book] Nhập môn Kinh tế lượng,2020,Damodar N. Gujarati,,999,,,,,,,https://library.edu.vn/ebooks/doc106.epub,37.1,EPUB
+DOC107,EBook,[E-Book] Kỹ thuật Lập trình C++ Nâng cao,2024,Bjarne Stroustrup,,999,,,,,,,https://library.edu.vn/ebooks/doc107.mobi,24.0,MOBI
+DOC108,EBook,[E-Book] Kiến trúc Máy tính và Hợp ngữ 8086,2020,David A. Patterson,,999,,,,,,,https://library.edu.vn/ebooks/doc108.pdf,27.8,PDF
+DOC109,EBook,[E-Book] An toàn Bảo mật Hệ thống Thông tin,2023,William Stallings,,999,,,,,,,https://library.edu.vn/ebooks/doc109.epub,39.7,EPUB
+DOC110,EBook,[E-Book] Phân tích Thiết kế Hệ thống Thông tin,2019,Alan Dennis,,999,,,,,,,https://library.edu.vn/ebooks/doc110.mobi,5.2,MOBI
+DOC111,EBook,[E-Book] Giải tích Toán học Tập 1,2026,Trần Đức Long,,999,,,,,,,https://library.edu.vn/ebooks/doc111.pdf,6.6,PDF
+DOC112,EBook,[E-Book] Đại số Tuyến tính và Ứng dụng,2025,Gilbert Strang,,999,,,,,,,https://library.edu.vn/ebooks/doc112.epub,28.6,EPUB
+DOC113,EBook,[E-Book] Xác suất Thống kê trong Khoa học Dữ liệu,2026,Peter Bruce,,999,,,,,,,https://library.edu.vn/ebooks/doc113.mobi,39.1,MOBI
+DOC114,EBook,[E-Book] Tư duy Phản biện và Giải quyết Vấn đề,2019,Richard Paul,,999,,,,,,,https://library.edu.vn/ebooks/doc114.pdf,30.8,PDF
+DOC115,EBook,[E-Book] Nhà Giả Kim,2024,Paulo Coelho,,999,,,,,,,https://library.edu.vn/ebooks/doc115.epub,10.3,EPUB
+DOC116,EBook,[E-Book] Đắc Nhân Tâm,2020,Dale Carnegie,,999,,,,,,,https://library.edu.vn/ebooks/doc116.mobi,9.5,MOBI
+DOC117,EBook,[E-Book] Tuổi Trẻ Đáng Giá Bao Nhiêu,2021,Rosie Nguyễn,,999,,,,,,,https://library.edu.vn/ebooks/doc117.pdf,20.9,PDF
+DOC118,EBook,[E-Book] Lược Sử Thời Gian,2023,Stephen Hawking,,999,,,,,,,https://library.edu.vn/ebooks/doc118.epub,27.3,EPUB
+DOC119,EBook,[E-Book] Sapiens: Lược Sử Loài Người,2019,Yuval Noah Harari,,999,,,,,,,https://library.edu.vn/ebooks/doc119.mobi,4.3,MOBI
+DOC120,EBook,[E-Book] Tâm Lý Học Hành Vi,2020,Daniel Kahneman,,999,,,,,,,https://library.edu.vn/ebooks/doc120.pdf,36.8,PDF

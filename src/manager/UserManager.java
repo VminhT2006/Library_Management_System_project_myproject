@@ -19,9 +19,9 @@ import util.Validator;
  * Không sử dụng cách lưu mật khẩu này cho ứng dụng thực tế.
  */
 public class UserManager implements IFileService {
-    private static final String DATA_FILE = "data/users.csv";
+    private static final String DATA_FILE = "data/users-v2.csv";
     private static final String HEADER =
-            "role;userID;userName;password;fullName;email;phone;tier;banned;balance;unpaidFine";
+            "userID,userName,password,fullName,role,tier,banned,balance,unpaidFine";
 
     private final List<User> users;
 
@@ -184,44 +184,46 @@ public class UserManager implements IFileService {
 
     @Override
     public void loadData() {
-        List<String> lines = FileUtil.readLines(DATA_FILE);
+        List<String> lines = FileUtil.readLines(FileUtil.resolveForRead(DATA_FILE));
         List<User> loaded = new ArrayList<>();
         for (String line : lines) {
             if (line.equals(HEADER)) {
                 continue;
             }
             try {
-                List<String> p = parseCsvLine(line);
-                if (p.size() != 11) {
-                    throw new IllegalArgumentException("Số cột khác 11");
+                // Cột: userID,userName,password,fullName,role,tier,banned,balance,unpaidFine
+                List<String> p = FileUtil.parseCsvLine(line);
+                if (p.size() < 9) {
+                    throw new IllegalArgumentException("Số cột ít hơn 9");
                 }
+                String userID = p.get(0).trim();
+                String userName = p.get(1).trim();
+                String password = p.get(2).trim();
+                String fullName = p.get(3).trim();
+                String role = p.get(4).trim().toUpperCase();
+
                 User user;
-                switch (p.get(0).toUpperCase()) {
+                switch (role) {
                     case "ADMIN":
-                        user = new Admin(p.get(1), p.get(2), p.get(3), p.get(4));
+                        user = new Admin(userID, userName, password, fullName);
                         break;
                     case "MEMBER":
-                        Member member = new Member(p.get(1), p.get(2), p.get(3), p.get(4));
-                        if (!p.get(7).isEmpty()) {
-                            member.setTier(p.get(7));
+                        Member member = new Member(userID, userName, password, fullName);
+                        if (!p.get(5).trim().isEmpty()) {
+                            member.setTier(p.get(5).trim());
                         }
-                        member.setBalance(Double.parseDouble(p.get(9)));
-                        member.setUnpaidFine(Double.parseDouble(p.get(10)));
-                        if (!"true".equalsIgnoreCase(p.get(8)) && !"false".equalsIgnoreCase(p.get(8))) {
+                        member.setBalance(Double.parseDouble(p.get(7).trim()));
+                        member.setUnpaidFine(Double.parseDouble(p.get(8).trim()));
+                        String bannedRaw = p.get(6).trim();
+                        if (!"true".equalsIgnoreCase(bannedRaw) && !"false".equalsIgnoreCase(bannedRaw)) {
                             throw new IllegalArgumentException("Trạng thái banned không hợp lệ");
                         }
-                        member.setBanned(Boolean.parseBoolean(p.get(8)) ||
+                        member.setBanned(Boolean.parseBoolean(bannedRaw) ||
                                 member.getUnpaidFine() > Member.BAN_FINE_THRESHOLD);
                         user = member;
                         break;
                     default:
-                        throw new IllegalArgumentException("Vai trò không hỗ trợ: " + p.get(0));
-                }
-                if (!p.get(5).isEmpty()) {
-                    user.setEmail(p.get(5));
-                }
-                if (!p.get(6).isEmpty()) {
-                    user.setPhone(p.get(6));
+                        throw new IllegalArgumentException("Vai trò không hỗ trợ: " + role);
                 }
                 validateUser(user);
                 boolean duplicate = false;
@@ -252,59 +254,14 @@ public class UserManager implements IFileService {
             validateUser(user);
             boolean memberType = user instanceof Member;
             Member member = memberType ? (Member) user : null;
-            String[] fields = {
-                memberType ? "MEMBER" : "ADMIN",
-                user.getUserID(), user.getUserName(), user.getPassword(), user.getFullName(),
-                user.getEmail(), user.getPhone(), memberType ? member.getTier() : "",
-                memberType ? String.valueOf(member.isBanned()) : "false",
-                memberType ? String.valueOf(member.getBalance()) : "0",
-                memberType ? String.valueOf(member.getUnpaidFine()) : "0"
-            };
-            StringBuilder line = new StringBuilder();
-            for (int i = 0; i < fields.length; i++) {
-                if (i > 0) {
-                    line.append(';');
-                }
-                line.append(quoteCsvField(fields[i]));
-            }
-            lines.add(line.toString());
+            lines.add(FileUtil.toCsvLine(
+                    user.getUserID(), user.getUserName(), user.getPassword(), user.getFullName(),
+                    memberType ? "MEMBER" : "ADMIN",
+                    memberType ? member.getTier() : "",
+                    memberType ? String.valueOf(member.isBanned()) : "false",
+                    memberType ? String.valueOf(member.getBalance()) : "0.0",
+                    memberType ? String.valueOf(member.getUnpaidFine()) : "0.0"));
         }
-        return FileUtil.writeLines(DATA_FILE, lines);
-    }
-
-    /** Bao dấu nháy kép để các trường có dấu ; hoặc dấu " vẫn lưu được. */
-    private static String quoteCsvField(String value) {
-        String field = value == null ? "" : value;
-        if (field.indexOf('\n') >= 0 || field.indexOf('\r') >= 0) {
-            throw new IllegalArgumentException("Dữ liệu tài khoản không được chứa ký tự xuống dòng!");
-        }
-        return "\"" + field.replace("\"", "\"\"") + "\"";
-    }
-
-    private static List<String> parseCsvLine(String line) {
-        List<String> result = new ArrayList<>();
-        StringBuilder field = new StringBuilder();
-        boolean inQuotes = false;
-        for (int i = 0; i < line.length(); i++) {
-            char c = line.charAt(i);
-            if (c == '"') {
-                if (inQuotes && i + 1 < line.length() && line.charAt(i + 1) == '"') {
-                    field.append('"');
-                    i++;
-                } else {
-                    inQuotes = !inQuotes;
-                }
-            } else if (c == ';' && !inQuotes) {
-                result.add(field.toString());
-                field.setLength(0);
-            } else {
-                field.append(c);
-            }
-        }
-        if (inQuotes) {
-            throw new IllegalArgumentException("Dấu nháy kép trong CSV chưa đóng");
-        }
-        result.add(field.toString());
-        return result;
+        return FileUtil.writeLines(FileUtil.resolveForWrite(DATA_FILE), lines);
     }
 }
